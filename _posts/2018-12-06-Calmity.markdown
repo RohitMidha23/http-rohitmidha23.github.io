@@ -19,7 +19,7 @@ hidden: true # don't count this post in blog pagination
 ## Get Calm in a Calamity 
 
 Disaster in the area? Don't know how to help? Stuck in the calamity? Need Help?
-Use calmity, an app that can be used by everyone, vicitims, voluenteers or any helping hand to get connected to people in and around the area undergoing some of the worst times possible in their lives. 
+Use calmity, an app that can be used by everyone, vicitims, volunteers or any helping hand to get connected to people in and around the area undergoing some of the worst times possible in their lives. 
 
 ## Features: 
 
