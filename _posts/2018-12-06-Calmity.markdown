@@ -1,0 +1,48 @@
+---
+title: Calmity
+layout: post
+projects: true
+date: 2018-12-05 15:42
+image: /assets/images/disaster.jpg
+headerImage: true
+tag:
+- android app development 
+- Social Cause
+star: false
+category: project
+author: Rohit Midha
+externalLink: false
+hidden: true # don't count this post in blog pagination
+---
+
+# Calmity
+## Get Calm in a Calamity 
+
+Disaster in the area? Don't know how to help? Stuck in the calamity? Need Help?
+Use calmity, an app that can be used by everyone, vicitims, voluenteers or any helping hand to get connected to people in and around the area undergoing some of the worst times possible in their lives. 
+
+## Features: 
+
+### Amenities : 
+
+    Need to find amenities in the area? Having a problem accessing food/shelter/transport? 
+    Find all the nearby calm-points to soothe your belly. 
+
+### SOS : 
+
+    Stuck in a tight spot? 
+    Just update your location on the app and this shall notify any other app users who shall help out. 
+
+### Volunteer : 
+
+    Are you going to be a helping hand? 
+    Find the nearest places you can volunteer at.
+
+
+##### [Check it out](http://github.com/RohitMidha23/Calmity) here.
+##### If you have any [Issues](http://github.com/RohitMidha23/Calmity/issues) report them here. 
+
+[Fire vector created by Freepik.](https://www.freepik.com/free-photos-vectors/fire)
+
+
+---
