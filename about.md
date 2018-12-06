@@ -40,7 +40,7 @@ Feeling technical much?
 	<li>Css Frameworks (Bootstrap, Foundation)</li>
 	<li>Javascript (Design Patterns, Testes)</li>
 	<li> Android App Development </li>
-	<li>Git</li>s
+	<li>Git</li>
 	<li>Python</li>
 </ul>
 
