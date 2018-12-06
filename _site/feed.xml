@@ -1,4 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-06T00:22:30+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">Calmity</title><link href="http://localhost:4000/Calmity/" rel="alternate" type="text/html" title="Calmity" /><published>2018-12-05T15:42:00+05:30</published><updated>2018-12-05T15:42:00+05:30</updated><id>http://localhost:4000/Calmity</id><content type="html" xml:base="http://localhost:4000/Calmity/">&lt;h1 id=&quot;calmity&quot;&gt;Calmity&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-12-06T21:45:01+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about technology and stuff related</subtitle><entry><title type="html">LocalHackDay</title><link href="http://localhost:4000/LocalHackDay/" rel="alternate" type="text/html" title="LocalHackDay" /><published>2018-12-06T12:20:00+05:30</published><updated>2018-12-06T12:20:00+05:30</updated><id>http://localhost:4000/LocalHackDay</id><content type="html" xml:base="http://localhost:4000/LocalHackDay/">&lt;p&gt;When my senior first told me about the hackathon, I was really excited and couldn’t wait for the day to come. 
+Me and two of my friends were fired up for our first ever hackathon while at the same time scared inwardly. 
+With cold feet, we reached the venue to a very warm breakfast, and a not-so-inviting workbench. 
+As the clock struck 9’o clock, the organisers took the dias to introduce to us and set the  Local Hack Day by Build2Learn in motion.&lt;/p&gt;
+
+&lt;p&gt;All around me I could see people wired in, confused and some even dazed. All this was enthralling and three of us huddled behind our laptops, each working on different parts of the app.&lt;/p&gt;
+
+&lt;p&gt;Around 2, nearly 6 hours in, all of us were famished and went down to a filling lunch, even though we knew we were no where near completion.&lt;/p&gt;
+
+&lt;p&gt;At the close of the hackathon, we finally had a working prototype ready and, fingers crossed, we presented to the judges. 
+All of them had quite a poker face and it was fairly hard to read their opinions on our app, which really got us worried. 
+Over the course of the next 2 hours, the judges hacked at every invention and well… no one does well with waiting. To take in some fresh air and put our minds at ease, we went down but that didn’t seem to help out at all. 
+So we went around looking at others hacks, quite innovative ones, at that. Every sort of code structure and language could be found in these hacks, NodeJs to ML to App development, you name it.&lt;/p&gt;
+
+&lt;p&gt;What really gave me hope was the uniqueness of our idea, and I dont mean to brag(?).&lt;/p&gt;
+
+&lt;p&gt;Finally after a half an hour delay, the winners were announced, and we, first timers, had been placed in the top 5 teams. The look of pleasant surprise on our faces, said it all.&lt;/p&gt;
+
+&lt;p&gt;With that we came to the close of a quite amazing hackathon. 
+My takeaway from the hackathon? Build2Learn.&lt;/p&gt;
+
+&lt;h4 id=&quot;check-out-the-app-we-built-here&quot;&gt;&lt;a href=&quot;http://github.com/RohitMidha23/Calmity&quot;&gt;Check out the app&lt;/a&gt; we built here.&lt;/h4&gt;
+
+&lt;hr /&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="hackathon" /><category term="android app development" /><summary type="html">When my senior first told me about the hackathon, I was really excited and couldn’t wait for the day to come. Me and two of my friends were fired up for our first ever hackathon while at the same time scared inwardly. With cold feet, we reached the venue to a very warm breakfast, and a not-so-inviting workbench. As the clock struck 9’o clock, the organisers took the dias to introduce to us and set the Local Hack Day by Build2Learn in motion.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/mlh-lhd.png" /></entry><entry><title type="html">Calmity</title><link href="http://localhost:4000/Calmity/" rel="alternate" type="text/html" title="Calmity" /><published>2018-12-05T15:42:00+05:30</published><updated>2018-12-05T15:42:00+05:30</updated><id>http://localhost:4000/Calmity</id><content type="html" xml:base="http://localhost:4000/Calmity/">&lt;h1 id=&quot;calmity&quot;&gt;Calmity&lt;/h1&gt;
 &lt;h2 id=&quot;get-calm-in-a-calamity&quot;&gt;Get Calm in a Calamity&lt;/h2&gt;
 
 &lt;p&gt;Disaster in the area? Don’t know how to help? Stuck in the calamity? Need Help?
