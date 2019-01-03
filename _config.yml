@@ -3,7 +3,7 @@ name: Rohit Midha
 bio: One part brave, three parts fool. 
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A blog about a man who loves numbers
 
 # if it's an external image, update below for true
 # better with square images
@@ -22,7 +22,7 @@ url: https://RohitMidha23.github.io
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'UA-131648030-1'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
