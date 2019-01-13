@@ -9,6 +9,7 @@ tag:
 - keras
 - tensorflow
 - neural networks
+- tutorial
 
 star: false
 category: blog
