@@ -524,7 +524,7 @@ print(df)
 
 
 ---
-You can find out the dataset used in the following code [here](http://bit.ly/MoviesDatasetExplained).
+You can find the dataset used in the following code [here](http://bit.ly/MoviesDatasetExplained).
 ```python
 movies=pd.read_csv("data/movies.csv",encoding = "ISO-8859-1")
 # encoding is added only for this specific dataset because it gave error with utf-8
