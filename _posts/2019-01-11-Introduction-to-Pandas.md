@@ -3701,3 +3701,1345 @@ print(num_series_changed.notnull())
     </table>
     <p>5 rows × 30 columns</p>
     </div>
+    ## Working with Missing Data
+    Pandas primarily uses the value np.nan to represent missing data (in table missed/empty value are marked by NaN). It is by default not included in computations. Missing data creates many issues at mathematical or computational tasks with DataFrames and Series and it’s important to know how fight with these values.
+
+
+    ```python
+    ages = movies['age']
+    sum(ages)
+    ```
+
+
+
+
+        nan
+
+
+
+    This is because there are so many cases where Age isn't given and hence takes on the value of np.nan.
+    We can use `fillna()`a very effecient pandas method for filling missing values
+
+
+    ```python
+    ages = movies['age'].fillna(0)
+    sum(ages)
+    ```
+
+
+
+
+        3089983.0
+
+
+
+    This fills all the values with 0 and calculates the sum.
+    To remain only rows with non-null values you can use method `dropna()`
+
+
+    ```python
+    ages = movies['age'].dropna()
+    sum(ages)
+    ```
+
+
+
+
+        3089983.0
+
+
+
+
+    ```python
+    movies_nonnull = movies.dropna()
+    movies_nonnull.head(20)
+    #14th value was dropped because it had a missing value in a column
+    ```
+
+
+
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>user_id</th>
+          <th>movie_id</th>
+          <th>rating</th>
+          <th>timestamp</th>
+          <th>age</th>
+          <th>gender</th>
+          <th>occupation</th>
+          <th>zip_code</th>
+          <th>movie_title</th>
+          <th>release_date</th>
+          <th>...</th>
+          <th>Fantasy</th>
+          <th>Film-Noir</th>
+          <th>Horror</th>
+          <th>Musical</th>
+          <th>Mystery</th>
+          <th>Romance</th>
+          <th>Sci-Fi</th>
+          <th>Thriller</th>
+          <th>War</th>
+          <th>Western</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>196</td>
+          <td>242</td>
+          <td>3</td>
+          <td>881250949</td>
+          <td>49.0</td>
+          <td>M</td>
+          <td>writer</td>
+          <td>55105</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>305</td>
+          <td>242</td>
+          <td>5</td>
+          <td>886307828</td>
+          <td>23.0</td>
+          <td>M</td>
+          <td>programmer</td>
+          <td>94086</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>6</td>
+          <td>242</td>
+          <td>4</td>
+          <td>883268170</td>
+          <td>42.0</td>
+          <td>M</td>
+          <td>executive</td>
+          <td>98101</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>234</td>
+          <td>242</td>
+          <td>4</td>
+          <td>891033261</td>
+          <td>60.0</td>
+          <td>M</td>
+          <td>retired</td>
+          <td>94702</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>63</td>
+          <td>242</td>
+          <td>3</td>
+          <td>875747190</td>
+          <td>31.0</td>
+          <td>M</td>
+          <td>marketing</td>
+          <td>75240</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>181</td>
+          <td>242</td>
+          <td>1</td>
+          <td>878961814</td>
+          <td>26.0</td>
+          <td>M</td>
+          <td>executive</td>
+          <td>21218</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td>201</td>
+          <td>242</td>
+          <td>4</td>
+          <td>884110598</td>
+          <td>27.0</td>
+          <td>M</td>
+          <td>writer</td>
+          <td>E2A4H</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td>249</td>
+          <td>242</td>
+          <td>5</td>
+          <td>879571438</td>
+          <td>25.0</td>
+          <td>M</td>
+          <td>student</td>
+          <td>84103</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>13</td>
+          <td>242</td>
+          <td>2</td>
+          <td>881515193</td>
+          <td>47.0</td>
+          <td>M</td>
+          <td>educator</td>
+          <td>29206</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td>279</td>
+          <td>242</td>
+          <td>3</td>
+          <td>877756647</td>
+          <td>33.0</td>
+          <td>M</td>
+          <td>programmer</td>
+          <td>85251</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td>145</td>
+          <td>242</td>
+          <td>5</td>
+          <td>875269755</td>
+          <td>31.0</td>
+          <td>M</td>
+          <td>entertainment</td>
+          <td>V3N4P</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <td>90</td>
+          <td>242</td>
+          <td>4</td>
+          <td>891382267</td>
+          <td>60.0</td>
+          <td>M</td>
+          <td>educator</td>
+          <td>78155</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>12</th>
+          <td>271</td>
+          <td>242</td>
+          <td>4</td>
+          <td>885844495</td>
+          <td>51.0</td>
+          <td>M</td>
+          <td>engineer</td>
+          <td>22932</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>13</th>
+          <td>18</td>
+          <td>242</td>
+          <td>5</td>
+          <td>880129305</td>
+          <td>35.0</td>
+          <td>F</td>
+          <td>other</td>
+          <td>37212</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>15</th>
+          <td>207</td>
+          <td>242</td>
+          <td>4</td>
+          <td>890793823</td>
+          <td>39.0</td>
+          <td>M</td>
+          <td>marketing</td>
+          <td>92037</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>16</th>
+          <td>14</td>
+          <td>242</td>
+          <td>4</td>
+          <td>876964570</td>
+          <td>45.0</td>
+          <td>M</td>
+          <td>scientist</td>
+          <td>55106</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>17</th>
+          <td>113</td>
+          <td>242</td>
+          <td>2</td>
+          <td>875075887</td>
+          <td>47.0</td>
+          <td>M</td>
+          <td>executive</td>
+          <td>95032</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>19</th>
+          <td>296</td>
+          <td>242</td>
+          <td>4</td>
+          <td>884196057</td>
+          <td>43.0</td>
+          <td>F</td>
+          <td>administrator</td>
+          <td>16803</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>20</th>
+          <td>154</td>
+          <td>242</td>
+          <td>3</td>
+          <td>879138235</td>
+          <td>25.0</td>
+          <td>M</td>
+          <td>student</td>
+          <td>53703</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>21</th>
+          <td>270</td>
+          <td>242</td>
+          <td>5</td>
+          <td>876953744</td>
+          <td>18.0</td>
+          <td>F</td>
+          <td>student</td>
+          <td>63119</td>
+          <td>Kolya (1996)</td>
+          <td>1997-01-24</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>20 rows × 30 columns</p>
+    </div>
+
+
+
+
+    ```python
+    movies_notnull = movies.dropna(how='all',subset=['age','occupation'])
+    #Drops all nan values from movies belonging to age and occupation
+    movies_notnull.info()
+    #Notice how age and occupation now have nearly 6000 lesser values
+    ```
+
+        <class 'pandas.core.frame.DataFrame'>
+        Int64Index: 99616 entries, 0 to 99999
+        Data columns (total 30 columns):
+        user_id         99616 non-null int64
+        movie_id        99616 non-null int64
+        rating          99616 non-null int64
+        timestamp       99616 non-null int64
+        age             93731 non-null float64
+        gender          99616 non-null object
+        occupation      93806 non-null object
+        zip_code        99616 non-null object
+        movie_title     99616 non-null object
+        release_date    99607 non-null datetime64[ns]
+        IMDb_URL        99603 non-null object
+        unknown         99616 non-null int64
+        Action          99616 non-null int64
+        Adventure       99616 non-null int64
+        Animation       99616 non-null int64
+        Childrens       99616 non-null int64
+        Comedy          99616 non-null int64
+        Crime           99616 non-null int64
+        Documentary     99616 non-null int64
+        Drama           99616 non-null int64
+        Fantasy         99616 non-null int64
+        Film-Noir       99616 non-null int64
+        Horror          99616 non-null int64
+        Musical         99616 non-null int64
+        Mystery         99616 non-null int64
+        Romance         99616 non-null int64
+        Sci-Fi          99616 non-null int64
+        Thriller        99616 non-null int64
+        War             99616 non-null int64
+        Western         99616 non-null int64
+        dtypes: datetime64[ns](1), float64(1), int64(23), object(5)
+        memory usage: 23.6+ MB
+
+
+    Thus, if `how='all'`, we get DataFrame, where all values in both columns from subset are NaN.
+
+    If `how='any'`, we get DataFrame, where at least one contains NaN.
+
+
+    ```python
+    movies.describe()
+    ```
+
+
+
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>user_id</th>
+          <th>movie_id</th>
+          <th>rating</th>
+          <th>timestamp</th>
+          <th>age</th>
+          <th>unknown</th>
+          <th>Action</th>
+          <th>Adventure</th>
+          <th>Animation</th>
+          <th>Childrens</th>
+          <th>...</th>
+          <th>Fantasy</th>
+          <th>Film-Noir</th>
+          <th>Horror</th>
+          <th>Musical</th>
+          <th>Mystery</th>
+          <th>Romance</th>
+          <th>Sci-Fi</th>
+          <th>Thriller</th>
+          <th>War</th>
+          <th>Western</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>count</th>
+          <td>100000.00000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>1.000000e+05</td>
+          <td>93731.000000</td>
+          <td>100000.0000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>...</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+          <td>100000.00000</td>
+          <td>100000.00000</td>
+          <td>100000.000000</td>
+          <td>100000.000000</td>
+        </tr>
+        <tr>
+          <th>mean</th>
+          <td>462.48475</td>
+          <td>425.530130</td>
+          <td>3.529860</td>
+          <td>8.835289e+08</td>
+          <td>32.966500</td>
+          <td>0.0001</td>
+          <td>0.255890</td>
+          <td>0.137530</td>
+          <td>0.036050</td>
+          <td>0.071820</td>
+          <td>...</td>
+          <td>0.013520</td>
+          <td>0.017330</td>
+          <td>0.053170</td>
+          <td>0.049540</td>
+          <td>0.052450</td>
+          <td>0.194610</td>
+          <td>0.12730</td>
+          <td>0.21872</td>
+          <td>0.093980</td>
+          <td>0.018540</td>
+        </tr>
+        <tr>
+          <th>std</th>
+          <td>266.61442</td>
+          <td>330.798356</td>
+          <td>1.125674</td>
+          <td>5.343856e+06</td>
+          <td>11.561809</td>
+          <td>0.0100</td>
+          <td>0.436362</td>
+          <td>0.344408</td>
+          <td>0.186416</td>
+          <td>0.258191</td>
+          <td>...</td>
+          <td>0.115487</td>
+          <td>0.130498</td>
+          <td>0.224373</td>
+          <td>0.216994</td>
+          <td>0.222934</td>
+          <td>0.395902</td>
+          <td>0.33331</td>
+          <td>0.41338</td>
+          <td>0.291802</td>
+          <td>0.134894</td>
+        </tr>
+        <tr>
+          <th>min</th>
+          <td>1.00000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>8.747247e+08</td>
+          <td>7.000000</td>
+          <td>0.0000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>...</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.00000</td>
+          <td>0.00000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+        </tr>
+        <tr>
+          <th>25%</th>
+          <td>254.00000</td>
+          <td>175.000000</td>
+          <td>3.000000</td>
+          <td>8.794487e+08</td>
+          <td>24.000000</td>
+          <td>0.0000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>...</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.00000</td>
+          <td>0.00000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+        </tr>
+        <tr>
+          <th>50%</th>
+          <td>447.00000</td>
+          <td>322.000000</td>
+          <td>4.000000</td>
+          <td>8.828269e+08</td>
+          <td>30.000000</td>
+          <td>0.0000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>...</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.00000</td>
+          <td>0.00000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+        </tr>
+        <tr>
+          <th>75%</th>
+          <td>682.00000</td>
+          <td>631.000000</td>
+          <td>4.000000</td>
+          <td>8.882600e+08</td>
+          <td>40.000000</td>
+          <td>0.0000</td>
+          <td>1.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>...</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+          <td>0.00000</td>
+          <td>0.00000</td>
+          <td>0.000000</td>
+          <td>0.000000</td>
+        </tr>
+        <tr>
+          <th>max</th>
+          <td>943.00000</td>
+          <td>1682.000000</td>
+          <td>5.000000</td>
+          <td>8.932866e+08</td>
+          <td>73.000000</td>
+          <td>1.0000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>...</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+          <td>1.00000</td>
+          <td>1.00000</td>
+          <td>1.000000</td>
+          <td>1.000000</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>8 rows × 24 columns</p>
+    </div>
+
+
+
+    At first, let’s find all unique dates in `‘release_date’` column of `movies` and then select only dates in range lower than 1995.
+
+
+    ```python
+    movies['release_date'] = movies['release_date'].map(pd.to_datetime)
+    # We map it to_datetime as pandas has a set way to deal with dates and then we can effectively work with dates.
+    unique_dates = movies['release_date'].drop_duplicates().dropna()
+    # Drops duplicates and nan values
+    unique_dates
+    ```
+
+
+
+
+        0       1997-01-24
+        117     1993-01-01
+        309     1994-01-01
+        409     1997-07-11
+        455     1986-01-01
+        785     1997-01-01
+        881     1987-01-01
+        1137    1979-01-01
+        1253    1996-04-26
+        1525    1995-01-01
+        1557    1996-03-08
+        1850    1996-11-15
+        2331    1990-01-01
+        2851    1971-01-01
+        2972    1978-01-01
+        3432    1997-07-04
+        3735    1996-04-12
+        4269    1996-12-18
+        4347    1996-04-23
+        4583    1996-10-04
+        4745    1997-06-27
+        4751    1997-01-31
+        4798    1996-06-28
+        4961    1988-01-01
+        5208    1995-10-30
+        5392    1996-02-09
+        5863    1996-09-28
+        6861    1997-05-09
+        7058    1996-10-11
+        7186    1997-08-15
+                   ...    
+        96679   1996-09-24
+        96855   1997-01-29
+        96948   1996-09-04
+        97195   1996-09-16
+        97434   1997-12-18
+        97639   1998-03-17
+        97816   1996-06-05
+        98068   1996-12-15
+        98546   1998-04-03
+        98574   1996-05-17
+        98590   1998-03-10
+        98739   1996-10-26
+        98748   1998-01-23
+        98786   1998-03-14
+        98856   1932-01-01
+        98969   1996-01-15
+        99205   1996-04-02
+        99280   1998-02-20
+        99321   1997-04-22
+        99598   1998-10-09
+        99650   1998-02-01
+        99702   1996-07-22
+        99737   1926-01-01
+        99813   1998-01-21
+        99885   1998-02-11
+        99938   1986-04-26
+        99940   1998-03-06
+        99958   1996-09-18
+        99967   1996-02-28
+        99977   1997-04-30
+        Name: release_date, Length: 240, dtype: datetime64[ns]
+
+
+
+
+    ```python
+    # find dates with year lower/equal than 1995
+    unique_dates_1 = filter(lambda x: x.year <= 1995, unique_dates)
+    # filter() takes two arguments. First one should return only boolean values and the second one is the variable over which ititerates over.
+    # This basically takes unique_dates and uses the lambda function (here, it returns bool values) and filters True cases.
+
+    unique_dates_1
+    ```
+
+
+
+
+        <filter at 0x1187af6a0>
+
+
+
+    Here we have used `drop_duplicates()` method to select only `unique` Series values. Then we can filter `movies` with respect to `release_date` condition. Each `datetime` Python object possesses with attributes `year`, `month`, `day`, etc. allowing to extract values of year, month, day, etc. from the date. We call the new DataFrame as `old_movies`.
+
+
+    ```python
+    old_movies = movies[movies['release_date'].isin(unique_dates_1)]
+    old_movies.head()
+    ```
+
+
+
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>user_id</th>
+          <th>movie_id</th>
+          <th>rating</th>
+          <th>timestamp</th>
+          <th>age</th>
+          <th>gender</th>
+          <th>occupation</th>
+          <th>zip_code</th>
+          <th>movie_title</th>
+          <th>release_date</th>
+          <th>...</th>
+          <th>Fantasy</th>
+          <th>Film-Noir</th>
+          <th>Horror</th>
+          <th>Musical</th>
+          <th>Mystery</th>
+          <th>Romance</th>
+          <th>Sci-Fi</th>
+          <th>Thriller</th>
+          <th>War</th>
+          <th>Western</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>117</th>
+          <td>196</td>
+          <td>393</td>
+          <td>4</td>
+          <td>881251863</td>
+          <td>49.0</td>
+          <td>M</td>
+          <td>writer</td>
+          <td>55105</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>118</th>
+          <td>22</td>
+          <td>393</td>
+          <td>4</td>
+          <td>878886989</td>
+          <td>25.0</td>
+          <td>M</td>
+          <td>writer</td>
+          <td>40206</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>119</th>
+          <td>244</td>
+          <td>393</td>
+          <td>3</td>
+          <td>880607365</td>
+          <td>28.0</td>
+          <td>M</td>
+          <td>technician</td>
+          <td>80525</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>120</th>
+          <td>298</td>
+          <td>393</td>
+          <td>4</td>
+          <td>884183099</td>
+          <td>44.0</td>
+          <td>M</td>
+          <td>executive</td>
+          <td>01581</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>121</th>
+          <td>286</td>
+          <td>393</td>
+          <td>4</td>
+          <td>877534481</td>
+          <td>27.0</td>
+          <td>M</td>
+          <td>student</td>
+          <td>15217</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>5 rows × 30 columns</p>
+    </div>
+
+
+
+    Now we may filter DataFrame `old_movies` by `age` and `rating`. Lets’ drop `timestamp`, `zip_code`
+
+
+    ```python
+    # get all users with age less than 25 that rated old movies higher than 3
+    old_movies_watch = old_movies[(old_movies['age']<25) & (old_movies['rating']>3)]
+    # Drop timestamp and zip_code
+    old_movies_watch = old_movies_watch.drop(['timestamp', 'zip_code'],axis=1)
+
+    old_movies_watch.head()
+    ```
+
+
+
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>user_id</th>
+          <th>movie_id</th>
+          <th>rating</th>
+          <th>age</th>
+          <th>gender</th>
+          <th>occupation</th>
+          <th>movie_title</th>
+          <th>release_date</th>
+          <th>IMDb_URL</th>
+          <th>unknown</th>
+          <th>...</th>
+          <th>Fantasy</th>
+          <th>Film-Noir</th>
+          <th>Horror</th>
+          <th>Musical</th>
+          <th>Mystery</th>
+          <th>Romance</th>
+          <th>Sci-Fi</th>
+          <th>Thriller</th>
+          <th>War</th>
+          <th>Western</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>124</th>
+          <td>303</td>
+          <td>393</td>
+          <td>4</td>
+          <td>19.0</td>
+          <td>M</td>
+          <td>student</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>http://us.imdb.com/M/title-exact?Mrs.%20Doubtf...</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>135</th>
+          <td>276</td>
+          <td>393</td>
+          <td>4</td>
+          <td>21.0</td>
+          <td>M</td>
+          <td>student</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>http://us.imdb.com/M/title-exact?Mrs.%20Doubtf...</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>153</th>
+          <td>128</td>
+          <td>393</td>
+          <td>4</td>
+          <td>24.0</td>
+          <td>F</td>
+          <td>marketing</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>http://us.imdb.com/M/title-exact?Mrs.%20Doubtf...</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>162</th>
+          <td>130</td>
+          <td>393</td>
+          <td>5</td>
+          <td>20.0</td>
+          <td>M</td>
+          <td>none</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>http://us.imdb.com/M/title-exact?Mrs.%20Doubtf...</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>183</th>
+          <td>314</td>
+          <td>393</td>
+          <td>4</td>
+          <td>20.0</td>
+          <td>F</td>
+          <td>student</td>
+          <td>Mrs. Doubtfire (1993)</td>
+          <td>1993-01-01</td>
+          <td>http://us.imdb.com/M/title-exact?Mrs.%20Doubtf...</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>5 rows × 28 columns</p>
+    </div>
