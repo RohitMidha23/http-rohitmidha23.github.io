@@ -221,7 +221,6 @@ print(num_series_changed.notnull())
     dtype: bool
 
 ---
-
 ## DataFrames
 
 
