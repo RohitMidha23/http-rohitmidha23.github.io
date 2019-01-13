@@ -17,7 +17,7 @@ author: Rohit Midha
 ---
 # Objective
 
-In this post I will implement an example neural network using Keras.
+In this post I will implement an example neural network using Keras and show you how the Neural Network learns over time.
 Keras is a framework for building ANNs that sits on top of either a Theano or TensorFlow backend.
 I like the way Keras works because I find it allows you to focus on the network structure, and you can get a model up and training very quickly.
 The [Keras Blog](https://blog.keras.io/) has some great examples of how to use the framework.
