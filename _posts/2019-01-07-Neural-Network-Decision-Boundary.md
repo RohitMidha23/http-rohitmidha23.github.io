@@ -172,3 +172,18 @@ def plot_decision_boundary(X, y, model, steps=1000, cmap='Paired'):
 plot_decision_boundary(X, y, model, cmap='RdBu')
 ```
 ![png](/assets/images/NeuralNetBoundary/decision-boundary.png)
+
+---
+
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/RohitMidha23" data-size="large" data-show-count="true" aria-label="Follow @RohitMidha23 on GitHub">Follow @RohitMidha23</a>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+Show some :heart: by :star:ing it.
+
+<!-- Place this tag where you want the button to render. -->
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/RohitMidha23/Neural-Network-Decision-Boundary" data-size="large" data-show-count="true" aria-label="Star RohitMidha23/Neural-Network-Decision-Boundary on GitHub">Star</a>

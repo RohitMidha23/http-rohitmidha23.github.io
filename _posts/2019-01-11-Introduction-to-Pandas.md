@@ -5542,4 +5542,14 @@ Find more about this at my GeeksForGeeks [Publication](https://www.geeksforgeeks
 
 ---
 
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/RohitMidha23" data-size="large" data-show-count="true" aria-label="Follow @RohitMidha23 on GitHub">Follow @RohitMidha23</a>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
 Find more at my Github repository [Explained](http://bit.ly/ExplainedRepo).
+
+Show some :heart: by :star:ing it.
+
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/RohitMidha23/Explained" data-size="large" data-show-count="true" aria-label="Star RohitMidha23/Explained on GitHub">Star</a>
