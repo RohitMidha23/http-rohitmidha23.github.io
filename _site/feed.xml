@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-31T18:46:39+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">Data Visualization with Matplotlib</title><link href="http://localhost:4000/Matplotlib-Explained/" rel="alternate" type="text/html" title="Data Visualization with Matplotlib" /><published>2019-01-30T11:20:00+05:30</published><updated>2019-01-30T11:20:00+05:30</updated><id>http://localhost:4000/Matplotlib-Explained</id><content type="html" xml:base="http://localhost:4000/Matplotlib-Explained/">&lt;p&gt;This is the third tutorial of the Explained! series.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-01T17:09:52+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">:pushpin: Featured Blog Posts :star:</title><link href="http://localhost:4000/Featured-Blog-Posts/" rel="alternate" type="text/html" title=":pushpin: Featured Blog Posts :star: " /><published>2019-02-01T10:00:00+05:30</published><updated>2019-02-01T10:00:00+05:30</updated><id>http://localhost:4000/Featured-Blog-Posts</id><content type="html" xml:base="http://localhost:4000/Featured-Blog-Posts/">&lt;p&gt;This blog post will be constantly updated with all my articles that have been featured on various portals.&lt;/p&gt;
+&lt;h1 id=&quot;datacamp&quot;&gt;DataCamp&lt;/h1&gt;
+&lt;h2 id=&quot;numpy-explained&quot;&gt;Numpy Explained&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.datacamp.com/community/news/numpy-explained-r5yarl75l7&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;pandas-explained&quot;&gt;Pandas Explained&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.datacamp.com/community/news/pandas-explained-8klfektnwya&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;binarify&quot;&gt;Binarify&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.datacamp.com/community/news/binarify-convert-images-to-binary-art-a5h8vc891t5&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;geeksforgeeks&quot;&gt;GeeksForGeeks&lt;/h1&gt;
+&lt;h2 id=&quot;groupby-with-dictionary&quot;&gt;Groupby with Dictionary&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.geeksforgeeks.org/combining-multiple-columns-in-pandas-groupby-with-dictionary/&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;breaking-up-a-string-into-columns-using-regex&quot;&gt;Breaking up a String into columns using regex&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.geeksforgeeks.org/split-a-string-into-columns-using-regex-in-pandas-dataframe/&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ranking-rows-in-pandas&quot;&gt;Ranking Rows in Pandas&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Find it &lt;a href=&quot;https://www.geeksforgeeks.org/ranking-rows-of-pandas-dataframe/&quot;&gt;here&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;hr /&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="featured" /><summary type="html">This blog post will be constantly updated with all my articles that have been featured on various portals. DataCamp Numpy Explained Find it here.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/star.jpg" /></entry><entry><title type="html">Data Visualization with Matplotlib</title><link href="http://localhost:4000/Matplotlib-Explained/" rel="alternate" type="text/html" title="Data Visualization with Matplotlib" /><published>2019-01-30T11:20:00+05:30</published><updated>2019-01-30T11:20:00+05:30</updated><id>http://localhost:4000/Matplotlib-Explained</id><content type="html" xml:base="http://localhost:4000/Matplotlib-Explained/">&lt;p&gt;This is the third tutorial of the Explained! series.&lt;/p&gt;
 
 &lt;p&gt;I will be cataloging all the work I do with regards to PyLibraries and will share it here or on &lt;a href=&quot;http://bit.ly/RohitMidha23GitHub&quot;&gt;my Github&lt;/a&gt;.&lt;/p&gt;
 
