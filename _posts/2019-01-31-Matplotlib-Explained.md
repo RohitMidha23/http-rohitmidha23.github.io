@@ -26,18 +26,15 @@ That being said, Dive in!
 In the Python world, there are multiple tools for data visualizing:
 * [**matplotlib**](http://matplotlib.org) produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms; you can generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc., with just a few lines of code;
 * [**Seaborn**](http://stanford.edu/~mwaskom/software/seaborn/index.html) is a library for making attractive and informative statistical graphics in Python;
-* [**Bokeh**](http://bokeh.pydata.org/en/latest/) targets modern web browsers for presentation; its goal is to provide elegant, concise construction of novel graphics in the style of D3.js, but also deliver this capability with high-performance interactivity over very large or streaming datasets;
-* [**plotly**](https://plot.ly) generates the most interactive graphs; allows saving them offline and create very rich web-based visualizations;
 
-and others (particularly, pandas also possesses with its own visualization funtionality). Many of above libraries contains various and powerful tools for geovisualization (using maps or globes).
+and others (particularly, pandas also possesses with its own visualization funtionality).
 
 Here, we will consider preferably matplotlib. Matplotlib is an excellent 2D and 3D graphics library for generating scientific, statistics, etc. figures. Some of the many advantages of this library include:
 
-* Easy to get started
-* Support for $LaTeX$ formatted labels and texts
+* Easy
 * Great control of every element in a figure, including figure size and DPI.
-* High-quality output in many formats, including PNG, PDF, SVG, EPS, and PGF.
-* GUI for interactively exploring figures *and* support for headless generation of figure files (useful for batch jobs).
+* High-quality output
+* GUI for interactively exploring figures.
 
 ## Working with Matplotlib
 
