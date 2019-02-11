@@ -15,11 +15,13 @@ star: false
 category: blog
 author: Rohit Midha
 ---
+
+<p style="font-size:12px;">Inspired by Jon Char's Publication.</p>
 # Objective
 
 In this post I will implement an example neural network using Keras and show you how the Neural Network learns over time.
 Keras is a framework for building ANNs that sits on top of either a Theano or TensorFlow backend.
-I like the way Keras works because I find it allows you to focus on the network structure, and you can get a model up and training very quickly.
+I really like Keras cause it's fairly simply to use and one can get a network up and running in no time.
 The [Keras Blog](https://blog.keras.io/) has some great examples of how to use the framework.
 
 ---
@@ -108,7 +110,7 @@ Keras allows for models to be summarized using `model.summary()`.
 ```python
 model.summary()
 ```
-
+>
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
     =================================================================
@@ -122,7 +124,7 @@ model.summary()
     Trainable params: 51
     Non-trainable params: 0
     _________________________________________________________________
-
+>
 
 ## Train the Model
 We can now train our model using the `model.fit()` method. We will save this as history to refer to it at a future point. Since the number of epochs is very high we will set `verbose=0` and shuffle the data as well.
@@ -138,10 +140,6 @@ history = model.fit(X[:500], y[:500], verbose=0, nb_epoch=4000, shuffle=True)
 
 ```python
 def plot_decision_boundary(X, y, model, steps=1000, cmap='Paired'):
-    """
-    Function to plot the decision boundary and data points of a model.
-    Data points are colored based on their actual label.
-    """
     cmap = plt.get_cmap(cmap)
 
     # Define region of interest by data limits
