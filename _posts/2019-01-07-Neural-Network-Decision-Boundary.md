@@ -182,6 +182,9 @@ plot_decision_boundary(X, y, model, cmap='RdBu')
 
 Show some :heart: by :star:ing it.
 
+
+{% include advertisements.html %}
+
 <!-- Place this tag where you want the button to render. -->
 <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/RohitMidha23/Neural-Network-Decision-Boundary" data-size="large" data-show-count="true" aria-label="Star RohitMidha23/Neural-Network-Decision-Boundary on GitHub">Star</a>
