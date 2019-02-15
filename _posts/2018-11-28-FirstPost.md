@@ -11,8 +11,9 @@ category: blog
 author: Rohit Midha
 ---
 
-Hello World! 
+Hello World!
 
-With the most obvious and cliched welcome message you can expect from a techie, Welcome! 
+With the most obvious and cliched welcome message you can expect from a techie, Welcome!
 
 ---
+{% include advertisements.html %}
