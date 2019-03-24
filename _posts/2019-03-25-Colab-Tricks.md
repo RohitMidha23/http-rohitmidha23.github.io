@@ -1,7 +1,7 @@
 ---
 title: Colab Tricks
 layout: post
-date: 2019-03-25 1:00
+date: 2019-03-24 1:00
 image: /assets/images/ColabTricks/colab.jpeg
 headerImage: true
 tag:
@@ -16,13 +16,13 @@ author: Rohit Midha
 
 # Contents
 
-- [Upload Computer File into Colab](#Upload-Computer-File-into-Colab)
-- [Download Computer File into Colab](#Download-Computer-File-into-Colab)
-- [Download and Unzip File stored in Colab](#Download-and-Unzip-File-stored-in-Colab)
-- [Download and Unzip File stored in Colab](#Download-and-Unzip-File-stored-in-Colab)
-- [Mounting your Google Drive as a Folder](#Mounting-your-Google-Drive-as-a-Folder)
-- [Send Alert Email at finish with GMail](#Send-Alert-Email-at-finish-with-GMail)
-- [Know your RAM and GPU Memory](#Know-your-RAM-and-GPU-Memory)
+- [Upload Computer File into Colab](#upload-computer-file-into-colab)
+- [Download Computer File into Colab](#download-computer-file-into-colab)
+- [Download and Unzip File stored in Colab](#download-and-unzip-file-stored-in-colab)
+- [Download and Unzip File stored in Colab](#download-and-unzip-file-stored-in-colab)
+- [Mounting your Google Drive as a Folder](#mounting-your-google-drive-as-a-folder)
+- [Send Alert Email at finish with GMail](#send-alert-email-at-finish-with-gmail)
+- [Know your RAM and GPU Memory](#know-your-ram-and-gpu-memory)
 - [Show GPU Memory while Training](#show-gpu-memory-while-training)
 
 ---
