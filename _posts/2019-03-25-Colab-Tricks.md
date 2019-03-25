@@ -14,6 +14,10 @@ category: blog
 author: Rohit Midha
 ---
 
+A collection of a few python scripts I have found to be useful as and when I have used Colab.
+
+This list will be updated as and when I find cooler tricks!
+
 # Contents
 
 - [Upload Computer File into Colab](#upload-computer-file-into-colab)
