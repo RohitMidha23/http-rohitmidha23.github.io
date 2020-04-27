@@ -1,4 +1,293 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-27T12:25:05+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">Pytorch - Simple Linear Regression</title><link href="http://localhost:4000/Pytorch-Linear-Regression/" rel="alternate" type="text/html" title="Pytorch - Simple Linear Regression" /><published>2020-04-26T12:20:00+05:30</published><updated>2020-04-26T12:20:00+05:30</updated><id>http://localhost:4000/Pytorch-Linear-Regression</id><content type="html" xml:base="http://localhost:4000/Pytorch-Linear-Regression/">&lt;p&gt;This is the fourth tutorial of the Explained! series and the start of the Pytorch tutorials.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-27T13:53:28+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">Pytorch - Advanced Linear Regression</title><link href="http://localhost:4000/Pytorch-Linear-Regression-Advanced/" rel="alternate" type="text/html" title="Pytorch - Advanced Linear Regression" /><published>2020-04-27T12:20:00+05:30</published><updated>2020-04-27T12:20:00+05:30</updated><id>http://localhost:4000/Pytorch-Linear-Regression-Advanced</id><content type="html" xml:base="http://localhost:4000/Pytorch-Linear-Regression-Advanced/">&lt;p&gt;This is the fifth tutorial of the Explained! series and the second of the Pytorch tutorials.&lt;/p&gt;
+
+&lt;p&gt;I will be cataloging all the work I do with regards to PyLibraries and will share it here or on &lt;a href=&quot;http://bit.ly/RohitMidha23GitHub&quot;&gt;my Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;That being said, Dive in!&lt;/p&gt;
+
+&lt;h1 id=&quot;the-setup&quot;&gt;The Setup&lt;/h1&gt;
+
+&lt;p&gt;In this tutorial we use a special package called hiddenlayer.&lt;/p&gt;
+
+&lt;p&gt;It’s very easy to install and serves as a way to visualize Pytorch graphs.&lt;/p&gt;
+
+&lt;p&gt;To install, use &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install hiddenlayer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;! pip install hiddenlayer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Requirement already satisfied: hiddenlayer in /usr/local/lib/python3.6/dist-packages (0.3)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Necessary imports
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import graphviz
+import hiddenlayer as hl
+import seaborn as sns
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The dataset we use is the Bike Sharing Demand Dataset which you can get by registering &lt;a href=&quot;https://www.kaggle.com/c/bike-sharing-demand/data&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now that we have the necessary things ready, let’s get into the thick of it.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-data&quot;&gt;The Data&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;data = pd.read_csv(&quot;train.csv&quot;, index_col = 0, nrows=1000)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For the sake of the tutorial we only use 1000 rows, but you can use the entire dataset!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;data.shape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(1000, 11)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;plt.figure(figsize=(8,8))
+sns.barplot('holiday', 'count', hue='season', data=data)
+plt.title(&quot;Number of bikes rented!&quot;)
+plt.legend(loc=&quot;upper right&quot;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/PytorchLinearRegressionComplex/output_11_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m going to leave further exploration up to you, the reader.&lt;/p&gt;
+
+&lt;p&gt;If you have any doubts on how to use &lt;code class=&quot;highlighter-rouge&quot;&gt;matplotlib&lt;/code&gt; you can refer to &lt;a href=&quot;https://rohitmidha23.github.io/Matplotlib-Explained/&quot;&gt;my  other tutorial on Matplotlib&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-dataloader&quot;&gt;The Dataloader&lt;/h1&gt;
+
+&lt;p&gt;We will use only a few columns for the final features.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;columns = ['season', 'holiday', 'workingday', 'weather', 'temp',
+           'atemp', 'humidity', 'windspeed', 'casual', 'registered']
+
+features = data[columns]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;target = data[&quot;count&quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Let's split the data into train and test data
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(features,
+                                                    target,
+                                                    test_size=0.2)
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(800, 10) (800,)
+(200, 10) (200,)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Convert the data to torch tensors
+train_x = torch.tensor(X_train.values, dtype=torch.float)
+test_x = torch.tensor(X_test.values, dtype=torch.float)
+
+train_y = torch.tensor(y_train.values, dtype=torch.float)
+test_y = torch.tensor(y_test.values, dtype=torch.float)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Load the data into pytorch required format
+import torch.utils.data as data_utils
+train_data = data_utils.TensorDataset(train_x, train_y)
+train_loader = data_utils.DataLoader(train_data, batch_size=100, shuffle=True)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# To be able to use the data in batches, we use the `iter` function
+features_batch, target_batch = iter(train_loader).next()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;print(features_batch.shape)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;torch.Size([100, 10])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;print(target_batch.shape)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;torch.Size([100])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;features_batch&lt;/code&gt; here represents one batch of the entire training data.&lt;/p&gt;
+
+&lt;p&gt;We had 1000 rows and we used &lt;code class=&quot;highlighter-rouge&quot;&gt;batch_size=100&lt;/code&gt; hence &lt;code class=&quot;highlighter-rouge&quot;&gt;features_batch&lt;/code&gt; has 100 rows as well.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-model&quot;&gt;The Model&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Define some parameters
+input_shape = train_x.shape[1]
+output_shape = 1
+hidden_layers = 10
+loss_func = torch.nn.MSELoss()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Define&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;model&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sequential&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hidden_layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+                         &lt;span class=&quot;n&quot;&gt;torch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hidden_layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output_shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice how the output of first layer has the same shape as input to the second layer.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Visualize the model using `hiddenlayer` package
+hl.build_graph(model, torch.zeros([10, input_shape]))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/PytorchLinearRegressionComplex/output_28_0.svg&quot; alt=&quot;svg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It shows us that we have 2 Linear layers, just as we defined it!&lt;/p&gt;
+
+&lt;p&gt;We now need to define an optimizer.&lt;/p&gt;
+
+&lt;p&gt;An optimizer is an object that is able to update all the models paramters using in built torch functionality. This is much easier to use than to manually update the weights ourselves!&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;the-training&quot;&gt;The Training!&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;total_steps = len(train_loader)
+num_epochs = 10000
+for epoch in range(num_epochs + 1):
+  for i, (inputs, target) in enumerate(train_loader):
+    # here features and target are one batch of the training data like explained above
+
+    # perform a forward pass
+    output = model(inputs)
+    # calculate the loss
+    loss = loss_func(output, target)
+
+    # make the gradients zero
+    optimizer.zero_grad()
+
+    # backpropogate
+    loss.backward()
+
+    # update the parameters. Notice how simple it is here
+    optimizer.step()
+
+    if epoch % 2000 == 0:
+      print(&quot;Epoch [{}/{}]: Step[{}/{}], Loss:{:.4f}&quot;
+              .format(epoch+1, num_epochs, i+1, total_steps, loss.item()))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Epoch [1/10000]: Step[1/8], Loss:3282.0115
+Epoch [1/10000]: Step[2/8], Loss:3065.8315
+Epoch [1/10000]: Step[3/8], Loss:3550.5315
+Epoch [1/10000]: Step[4/8], Loss:3244.2869
+Epoch [1/10000]: Step[5/8], Loss:3749.1912
+Epoch [1/10000]: Step[6/8], Loss:3523.2688
+Epoch [1/10000]: Step[7/8], Loss:3556.7913
+Epoch [1/10000]: Step[8/8], Loss:3748.4592
+Epoch [2001/10000]: Step[1/8], Loss:3296.5720
+Epoch [2001/10000]: Step[2/8], Loss:3847.5923
+Epoch [2001/10000]: Step[3/8], Loss:2398.2815
+Epoch [2001/10000]: Step[4/8], Loss:3496.5776
+Epoch [2001/10000]: Step[5/8], Loss:4121.9551
+Epoch [2001/10000]: Step[6/8], Loss:2642.0327
+Epoch [2001/10000]: Step[7/8], Loss:3260.0356
+Epoch [2001/10000]: Step[8/8], Loss:3707.0972
+Epoch [4001/10000]: Step[1/8], Loss:3247.1775
+Epoch [4001/10000]: Step[2/8], Loss:3465.2959
+Epoch [4001/10000]: Step[3/8], Loss:2906.5935
+Epoch [4001/10000]: Step[4/8], Loss:3023.2544
+Epoch [4001/10000]: Step[5/8], Loss:2567.9910
+Epoch [4001/10000]: Step[6/8], Loss:3718.7825
+Epoch [4001/10000]: Step[7/8], Loss:3736.2141
+Epoch [4001/10000]: Step[8/8], Loss:4090.5081
+Epoch [6001/10000]: Step[1/8], Loss:3859.3101
+Epoch [6001/10000]: Step[2/8], Loss:3873.6516
+Epoch [6001/10000]: Step[3/8], Loss:3024.7444
+Epoch [6001/10000]: Step[4/8], Loss:2891.5762
+Epoch [6001/10000]: Step[5/8], Loss:2543.3599
+Epoch [6001/10000]: Step[6/8], Loss:3624.6553
+Epoch [6001/10000]: Step[7/8], Loss:4131.1685
+Epoch [6001/10000]: Step[8/8], Loss:2799.2190
+Epoch [8001/10000]: Step[1/8], Loss:3553.4956
+Epoch [8001/10000]: Step[2/8], Loss:3211.1287
+Epoch [8001/10000]: Step[3/8], Loss:2801.9431
+Epoch [8001/10000]: Step[4/8], Loss:4875.0898
+Epoch [8001/10000]: Step[5/8], Loss:2408.1021
+Epoch [8001/10000]: Step[6/8], Loss:2821.6018
+Epoch [8001/10000]: Step[7/8], Loss:3497.8740
+Epoch [8001/10000]: Step[8/8], Loss:3590.0503
+Epoch [10001/10000]: Step[1/8], Loss:2453.6292
+Epoch [10001/10000]: Step[2/8], Loss:4270.7446
+Epoch [10001/10000]: Step[3/8], Loss:2779.2837
+Epoch [10001/10000]: Step[4/8], Loss:3068.2778
+Epoch [10001/10000]: Step[5/8], Loss:3535.3823
+Epoch [10001/10000]: Step[6/8], Loss:3683.9949
+Epoch [10001/10000]: Step[7/8], Loss:4048.2344
+Epoch [10001/10000]: Step[8/8], Loss:2899.5249
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;the-evaluation&quot;&gt;The Evaluation&lt;/h1&gt;
+
+&lt;p&gt;To evaluate the model we switch to evaluation mode.&lt;/p&gt;
+
+&lt;p&gt;This is because the &lt;code class=&quot;highlighter-rouge&quot;&gt;Dropout&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;BatchNormalization&lt;/code&gt; layers have different models for evaluation and training.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;model.eval()
+
+# Predict on the test set
+with torch.no_grad():
+  # Anything inside `torch.no_grad()`
+  # puts the `requires_grad` property to False.
+  y_pred = model(test_x)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# convert the tensor to a numpy array
+y_pred = y_pred.detach().numpy()
+print(y_pred.shape)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(200, 1)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;y_test.shape
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(200,)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Both are the same shape so we can continue to evaluate the model.&lt;/p&gt;
+
+&lt;p&gt;To evaluate the model we use the r2 (r-square) score.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;from sklearn.metrics import r2_score
+
+print(&quot;R2 score: &quot;, r2_score(y_test, y_pred))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;R2 score:  0.028551743423591014
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see the R2 score is pretty bad (higher the better).&lt;/p&gt;
+
+&lt;p&gt;Clearly we need to train our model for more number of epochs and also on the entire dataset.&lt;/p&gt;
+
+&lt;p&gt;I leave that up to you to do.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;!-- Place this tag where you want the button to render. --&gt;
+&lt;p&gt;&lt;a class=&quot;github-button&quot; href=&quot;https://github.com/RohitMidha23&quot; data-size=&quot;large&quot; data-show-count=&quot;true&quot; aria-label=&quot;Follow @RohitMidha23 on GitHub&quot;&gt;Follow @RohitMidha23&lt;/a&gt;
+&lt;!-- Place this tag in your head or just before your close body tag. --&gt;
+&lt;script async=&quot;&quot; defer=&quot;&quot; src=&quot;https://buttons.github.io/buttons.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Find more at my Github repository &lt;a href=&quot;http://bit.ly/ExplainedRepo&quot;&gt;Explained&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Show some :heart: by :star:ing it.&lt;/p&gt;
+
+&lt;!-- Place this tag where you want the button to render. --&gt;
+&lt;p&gt;&lt;a class=&quot;github-button&quot; href=&quot;https://github.com/RohitMidha23/Explained&quot; data-size=&quot;large&quot; data-show-count=&quot;true&quot; aria-label=&quot;Star RohitMidha23/Explained on GitHub&quot;&gt;Star&lt;/a&gt;
+&lt;a href=&quot;http://bit.ly/2TGi2aE&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#fff; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}&lt;/style&gt;&lt;/p&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="machine learning" /><category term="pytorch" /><category term="tutorial" /><summary type="html">This is the fifth tutorial of the Explained! series and the second of the Pytorch tutorials.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/PytorchLinearRegression/logo.png" /></entry><entry><title type="html">Pytorch - Simple Linear Regression</title><link href="http://localhost:4000/Pytorch-Linear-Regression/" rel="alternate" type="text/html" title="Pytorch - Simple Linear Regression" /><published>2020-04-26T12:20:00+05:30</published><updated>2020-04-26T12:20:00+05:30</updated><id>http://localhost:4000/Pytorch-Linear-Regression</id><content type="html" xml:base="http://localhost:4000/Pytorch-Linear-Regression/">&lt;p&gt;This is the fourth tutorial of the Explained! series and the start of the Pytorch tutorials.&lt;/p&gt;
 
 &lt;p&gt;I will be cataloging all the work I do with regards to PyLibraries and will share it here or on &lt;a href=&quot;http://bit.ly/RohitMidha23GitHub&quot;&gt;my Github&lt;/a&gt;.&lt;/p&gt;
 
@@ -7665,35 +7954,4 @@ _________________________________________________________________
 &lt;!-- Place this tag where you want the button to render. --&gt;
 &lt;!-- Place this tag where you want the button to render. --&gt;
 &lt;p&gt;&lt;a class=&quot;github-button&quot; href=&quot;https://github.com/RohitMidha23/Neural-Network-Decision-Boundary&quot; data-size=&quot;large&quot; data-show-count=&quot;true&quot; aria-label=&quot;Star RohitMidha23/Neural-Network-Decision-Boundary on GitHub&quot;&gt;Star&lt;/a&gt;
-&lt;a href=&quot;https://github.com/RohitMidha23/Neural-Network-Decision-Boundary&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#fff; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}&lt;/style&gt;&lt;/p&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="machine learning" /><category term="keras" /><category term="tensorflow" /><category term="neural networks" /><category term="tutorial" /><summary type="html">Inspired by Jon Char's Publication. Objective</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/NeuralNetBoundary/decision-boundary.png" /></entry><entry><title type="html">LocalHackDay</title><link href="http://localhost:4000/LocalHackDay/" rel="alternate" type="text/html" title="LocalHackDay" /><published>2018-12-06T12:20:00+05:30</published><updated>2018-12-06T12:20:00+05:30</updated><id>http://localhost:4000/LocalHackDay</id><content type="html" xml:base="http://localhost:4000/LocalHackDay/">&lt;p&gt;When my senior first told me about the hackathon, I was really excited and couldn’t wait for the day to come.
-Me and two of my friends were fired up for our first ever hackathon while at the same time scared inwardly.
-With cold feet, we reached the venue to a very warm breakfast, and a not-so-inviting workbench.
-As the clock struck 9’o clock, the organisers took the dias to introduce to us and set the  Local Hack Day by Build2Learn in motion.&lt;/p&gt;
-
-&lt;p&gt;All around me I could see people wired in, confused and some even dazed. All this was enthralling and three of us huddled behind our laptops, each working on different parts of the app.&lt;/p&gt;
-
-&lt;p&gt;Around 2, nearly 6 hours in, all of us were famished and went down to a filling lunch, even though we knew we were no where near completion.&lt;/p&gt;
-
-&lt;p&gt;At the close of the hackathon, we finally had a working prototype ready and, fingers crossed, we presented to the judges.
-All of them had quite a poker face and it was fairly hard to read their opinions on our app, which really got us worried.
-Over the course of the next 2 hours, the judges hacked at every invention and well… no one does well with waiting. To take in some fresh air and put our minds at ease, we went down but that didn’t seem to help out at all.
-So we went around looking at others hacks, quite innovative ones, at that. Every sort of code structure and language could be found in these hacks, NodeJs to ML to App development, you name it.&lt;/p&gt;
-
-&lt;p&gt;What really gave me hope was the uniqueness of our idea, and I dont mean to brag(?).&lt;/p&gt;
-
-&lt;p&gt;Finally after a half an hour delay, the winners were announced, and we, first timers, had been placed in the top 5 teams. The look of pleasant surprise on our faces, said it all.&lt;/p&gt;
-
-&lt;p&gt;With that we came to the close of a quite amazing hackathon.
-My takeaway from the hackathon? Build2Learn.&lt;/p&gt;
-
-&lt;h4 id=&quot;check-out-the-app-we-built-here&quot;&gt;&lt;a href=&quot;http://github.com/RohitMidha23/Calmity&quot;&gt;Check out the app&lt;/a&gt; we built here.&lt;/h4&gt;
-
-&lt;hr /&gt;
-&lt;!----
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CchY35zCKj4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
----
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/WpTceSzBcd4&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
---&gt;
-&lt;hr /&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="hackathon" /><category term="android app development" /><summary type="html">When my senior first told me about the hackathon, I was really excited and couldn’t wait for the day to come. Me and two of my friends were fired up for our first ever hackathon while at the same time scared inwardly. With cold feet, we reached the venue to a very warm breakfast, and a not-so-inviting workbench. As the clock struck 9’o clock, the organisers took the dias to introduce to us and set the Local Hack Day by Build2Learn in motion.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/mlh-lhd.png" /></entry></feed>
+&lt;a href=&quot;https://github.com/RohitMidha23/Neural-Network-Decision-Boundary&quot; class=&quot;github-corner&quot; aria-label=&quot;View source on GitHub&quot;&gt;&lt;svg width=&quot;80&quot; height=&quot;80&quot; viewBox=&quot;0 0 250 250&quot; style=&quot;fill:#fff; color:#151513; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill=&quot;currentColor&quot; style=&quot;transform-origin: 130px 106px;&quot; class=&quot;octo-arm&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill=&quot;currentColor&quot; class=&quot;octo-body&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;style&gt;.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}&lt;/style&gt;&lt;/p&gt;</content><author><name>Rohit Midha</name></author><category term="blog" /><category term="machine learning" /><category term="keras" /><category term="tensorflow" /><category term="neural networks" /><category term="tutorial" /><summary type="html">Inspired by Jon Char's Publication. Objective</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/NeuralNetBoundary/decision-boundary.png" /></entry></feed>
