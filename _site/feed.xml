@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-27T13:53:28+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">Pytorch - Advanced Linear Regression</title><link href="http://localhost:4000/Pytorch-Linear-Regression-Advanced/" rel="alternate" type="text/html" title="Pytorch - Advanced Linear Regression" /><published>2020-04-27T12:20:00+05:30</published><updated>2020-04-27T12:20:00+05:30</updated><id>http://localhost:4000/Pytorch-Linear-Regression-Advanced</id><content type="html" xml:base="http://localhost:4000/Pytorch-Linear-Regression-Advanced/">&lt;p&gt;This is the fifth tutorial of the Explained! series and the second of the Pytorch tutorials.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-27T13:54:58+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Rohit Midha</title><subtitle>A blog about a man who flips bits.</subtitle><entry><title type="html">Pytorch - Advanced Linear Regression</title><link href="http://localhost:4000/Pytorch-Linear-Regression-Advanced/" rel="alternate" type="text/html" title="Pytorch - Advanced Linear Regression" /><published>2020-04-27T12:20:00+05:30</published><updated>2020-04-27T12:20:00+05:30</updated><id>http://localhost:4000/Pytorch-Linear-Regression-Advanced</id><content type="html" xml:base="http://localhost:4000/Pytorch-Linear-Regression-Advanced/">&lt;p&gt;This is the fifth tutorial of the Explained! series and the second of the Pytorch tutorials.&lt;/p&gt;
 
 &lt;p&gt;I will be cataloging all the work I do with regards to PyLibraries and will share it here or on &lt;a href=&quot;http://bit.ly/RohitMidha23GitHub&quot;&gt;my Github&lt;/a&gt;.&lt;/p&gt;
 
@@ -11,12 +11,6 @@
 &lt;p&gt;It’s very easy to install and serves as a way to visualize Pytorch graphs.&lt;/p&gt;
 
 &lt;p&gt;To install, use &lt;code class=&quot;highlighter-rouge&quot;&gt;pip install hiddenlayer&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;! pip install hiddenlayer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Requirement already satisfied: hiddenlayer in /usr/local/lib/python3.6/dist-packages (0.3)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Necessary imports
 import torch

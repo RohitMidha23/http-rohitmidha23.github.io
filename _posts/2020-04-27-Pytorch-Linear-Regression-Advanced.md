@@ -31,14 +31,6 @@ To install, use `pip install hiddenlayer`.
 
 
 ```
-! pip install hiddenlayer
-```
-
-    Requirement already satisfied: hiddenlayer in /usr/local/lib/python3.6/dist-packages (0.3)
-
-
-
-```
 # Necessary imports
 import torch
 import numpy as np
