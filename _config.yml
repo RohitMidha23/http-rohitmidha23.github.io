@@ -14,7 +14,7 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: http://bit.ly/resume_october
+resume-url: https://github.com/RohitMidha23/resume/blob/master/RohitResume.pdf
 
 url: https://RohitMidha23.github.io
 # your url: http://USERNAME.github.io
@@ -34,12 +34,12 @@ disqus:
   categories: [] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-facebook: RohitWaitForItMidha
+# facebook: RohitWaitForItMidha
 #twitter: mytwitter
 # google: mygoogle
-instagram: notrohitmidha
+# instagram: notrohitmidha
 # pinterest: mypinterest
-linkedin: rohit-midha-251785146/
+linkedin: /in/rohitmidha/
 # youtube: myyoutube
 # spotify: myspotify
 github: RohitMidha23
