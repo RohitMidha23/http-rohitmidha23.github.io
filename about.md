@@ -18,11 +18,7 @@ You wish to know more?
 
 
 Well.. Okay.
-A strict non Man City nor Chelsea but a huge Real Madrid Fan!
 
-You desire even more?
-
-Fine, if you really insist. 
 
 Ambitious, top achiever in a variety of fields, extroverted - introvert, highly well informed and well known(?), and well.. need I dwell into coding skills? 
 
@@ -36,27 +32,10 @@ Feeling technical much?
 <ul class="skill-list">
 	<li>HTML </li>
 	<li>CSS </li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>React Native</li>
+	<li>React + Redux</li>
 	<li>Java Programming</li>
 	<li>C/C++ Programming</li>
 	<li>Android App Development </li>
-	<li>Git</li>
 	<li>Deep Learning</li>
 	<li>Machine Learning</li>
-	<li>Python</li>
-	<li>Keras</li>
-	<li>Tensorflow</li>
-
-</ul>
-
-<h2>Projects</h2>
-
-<ul>
-	<li><a href = "https://github.com/RohitMidha23/AI-Games"> AI Games </a></li>
-	<li><a href = "https://github.com/RohitMidha23/BreastCancerResearch"> Breast Cancer Research </a></li>
-	<li><a href = "https://github.com/RohitMidha23/Explained"> Explained </a></li>
-	<li><a href = "https://github.com/RohitMidha23/Calmity"> Calmity </a></li>
-	<li><a href = "https://github.com/RohitMidha23/FaceRecog">Face Recogniton using LBPH</a></li>
-	<li><a href = "https://github.com/RohitMidha23/SSNMUN2018">SSNMUN 2018 Website</a></li>
 </ul>
