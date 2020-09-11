@@ -39,6 +39,8 @@ from google.colab import files
 uploaded = files.upload()
 ```
 
+
+
 ---
 
 ### Download Computer File into Colab
@@ -47,6 +49,17 @@ uploaded = files.upload()
 ```python
 files.download('saved_file.h5')
 ```
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 
 ---
 
@@ -88,7 +101,20 @@ zip_ref.extractall('MODEL/')
 zip_ref.close()
 ```
 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 ---
+
 
 ### Zip and Upload Folder to Drive
 
@@ -140,6 +166,17 @@ from google.colab import drive
 drive.mount('/content/gdrive',force_remount=True)
 ```
 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 ---
 
 ### Send Alert Email at finish with GMail
@@ -158,6 +195,17 @@ server.sendmail("sender_gmail_here@gmail.com", "receiver_gmail_here@gmail.com", 
 server.quit()
 ```
 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 ---
 
 ### Know your RAM and GPU Memory
@@ -183,6 +231,17 @@ def printm():
 printm()
 ```
 
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 ---
 
 ### Show GPU Memory while Training
@@ -215,5 +274,14 @@ t = threading.Thread(target=worker, name='Monitor')
 t.start()
 ```
 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-5985510680767977"
+     data-ad-slot="2569042228"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 ---
