@@ -129,17 +129,6 @@ print(x)
     [[1 2]
      [1 2]]
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 
 ## Attributes of ndarray
 
@@ -179,16 +168,6 @@ print("nbytes:", x2.nbytes, "bytes")
     itemsize: 8 bytes
     nbytes: 48 bytes
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 ## Array Indexing: Accessing Single Elements
@@ -276,17 +255,6 @@ print("x1 after changing : ",x1)
     [1 2 3 4 5]
     x1 after changing :  [1 2 5 4 5]
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ## Array Slicing and Subsetting : Accessing Subarrays
 
 Just as we can use square brackets to access individual array elements, we can also use them to access subarrays with the slice notation, marked by the colon (:) character. The NumPy slicing syntax follows that of the standard Python list; to access a slice of an array x, use :
@@ -343,17 +311,6 @@ print("x2[:, 0] = ",x2[:, 0])  # first column of x2
      [3 2 1]]
     x2[:, 0] =  [1 4 7]
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ## Joining Two Arrays
 
 Joining of two arrays in NumPy, is primarily accomplished using the routine `np.concatenate`.
@@ -384,16 +341,6 @@ print(z2)
      [3 4 5]
      [4 5 6]]
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 # Arithmetic Operations on 2D arrays
 
@@ -470,16 +417,6 @@ print(np.matmul(x2,y2))
     [[26 32]
      [38 47]]
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ## Covariance
 
@@ -532,17 +469,6 @@ print(np.cov(y))
      [-4.286       2.14413333]]
     11.709999999999999
     2.1441333333333334
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 # Correlation
 

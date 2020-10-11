@@ -50,17 +50,6 @@ uploaded = files.upload()
 files.download('saved_file.h5')
 ```
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 ---
 
 ### Download and Unzip File stored in Colab
@@ -100,18 +89,6 @@ zip_ref = zipfile.ZipFile('model.zip', 'r')
 zip_ref.extractall('MODEL/')
 zip_ref.close()
 ```
-
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ---
 
@@ -167,16 +144,6 @@ drive.mount('/content/gdrive',force_remount=True)
 ```
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 ---
 
 ### Send Alert Email at finish with GMail
@@ -195,17 +162,6 @@ server.sendmail("sender_gmail_here@gmail.com", "receiver_gmail_here@gmail.com", 
 server.quit()
 ```
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 ---
 
 ### Know your RAM and GPU Memory
@@ -232,16 +188,6 @@ printm()
 ```
 
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 ---
 
 ### Show GPU Memory while Training
@@ -273,15 +219,4 @@ import threading
 t = threading.Thread(target=worker, name='Monitor')
 t.start()
 ```
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 ---

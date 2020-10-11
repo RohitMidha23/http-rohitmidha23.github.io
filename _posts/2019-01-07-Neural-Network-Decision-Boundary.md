@@ -82,16 +82,6 @@ model.add(Dense(output_dim=5, input_shape=(2, ), **layer_kw))
 model.add(Dense(output_dim=5, **layer_kw))
 model.add(Dense(output_dim=1, **layer_kw))
 ```
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 
 ## Defining the Optimizer
@@ -143,17 +133,6 @@ We can now train our model using the `model.fit()` method. We will save this as 
 ```python
 history = model.fit(X[:500], y[:500], verbose=0, nb_epoch=4000, shuffle=True)
 ```
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block; text-align:center;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-5985510680767977"
-     data-ad-slot="2569042228"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 
 ## Visualizing the Results
 
